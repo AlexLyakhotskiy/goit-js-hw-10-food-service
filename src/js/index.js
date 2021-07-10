@@ -27,6 +27,5 @@ function onThemeToggleSwitch() {
   if (!themeToggle.checked) {
     document.body.classList.replace(Theme.DARK, Theme.LIGHT);
     localStorage.setItem('settings', Theme.LIGHT);
-    return;
   }
 }
