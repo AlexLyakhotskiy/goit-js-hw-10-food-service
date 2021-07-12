@@ -13,9 +13,10 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
-if (localStorage.getItem('settings') === Theme.DARK) {
+const currentTheme = localStorage.getItem('settings') || Theme.LIGHT;
+document.body.classList.add(currentTheme);
+if (currentTheme === Theme.DARK) {
   themeToggle.checked = true;
-  document.body.classList.replace(Theme.LIGHT, Theme.DARK);
 }
 
 function onThemeToggleSwitch() {
@@ -24,8 +25,6 @@ function onThemeToggleSwitch() {
     localStorage.setItem('settings', Theme.DARK);
     return;
   }
-  if (!themeToggle.checked) {
-    document.body.classList.replace(Theme.DARK, Theme.LIGHT);
-    localStorage.setItem('settings', Theme.LIGHT);
-  }
+  document.body.classList.replace(Theme.DARK, Theme.LIGHT);
+  localStorage.setItem('settings', Theme.LIGHT);
 }
